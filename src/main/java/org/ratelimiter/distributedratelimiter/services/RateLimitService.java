@@ -14,7 +14,7 @@ public class RateLimitService {
     private final RedisScript<Long> rateLimitLuaScript;
 
     private static final String BUCKET_CAPACITY = "15";
-    private static final String BUCKET_REFILL_RATE_PER_SEC = "5";
+    private static final String BUCKET_REFILL_RATE_PER_SEC = "1";
     private static final String REDIS_RATE_LIMIT_KEY = "rate_limit:client:";
 
     public RateLimitService(RedisTemplate<String, Object> redisTemplate, RedisScript<Long> rateLimitLuaScript) {

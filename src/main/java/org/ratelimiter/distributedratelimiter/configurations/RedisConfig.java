@@ -27,8 +27,9 @@ public class RedisConfig {
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         redisTemplate.setKeySerializer(RedisSerializer.string());
         redisTemplate.setHashKeySerializer(RedisSerializer.string());
-        redisTemplate.setValueSerializer(RedisSerializer.json());
-        redisTemplate.setHashValueSerializer(RedisSerializer.json());
+        // Keep script args and Redis hash values as plain strings for Lua parsing.
+        redisTemplate.setValueSerializer(RedisSerializer.string());
+        redisTemplate.setHashValueSerializer(RedisSerializer.string());
         return redisTemplate;
     }
 }
